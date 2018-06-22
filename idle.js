@@ -143,7 +143,7 @@ var INJECT_leave_round = function() {
 		url: "https://community.steam-api.com/IMiniGameService/LeaveGame/v0001/",
 		data: { access_token: access_token, gameid: current_game_id },
 		success: function(data) {}
-	},);
+	});
 
 	// Clear the current game ID var
 	current_game_id = undefined;
@@ -222,6 +222,7 @@ function GetBestZone() {
 
 // Switch to the next zone when one is completed
 function SwitchNextZone() {
+	next_zone = GetBestZone();
 	INJECT_leave_round();
 	INJECT_update_grid();
 	var next_zone = GetBestZone();
